@@ -1,0 +1,183 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+% resume-tailor template. Two changes from stock Jake's:
+%   1. \resumeProjectHeading sets BOTH columns in \small (stock leaves the
+%      right column full size, so GitHub links look oversized).
+%   2. Header is a single contact line; skills use five categories.
+% Everything below "RESUME STARTS HERE" is example content -- replace it.
+% Compile with pdflatex (not xelatex/tectonic: \pdfgentounicode is pdfTeX-only).
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+% Slightly tighter than stock Jake's (~0.35in top/bottom, ~0.4in sides) to fit fuller bullets.
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \small#2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt, parsep=0pt, topsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% One contact line only. Add a location/availability line only if the user asks.
+\begin{center}
+    \textbf{\Huge \scshape Jane Doe} \\ \vspace{1pt}
+    \small 555-123-4567 $|$ \href{mailto:jane@example.com}{\underline{jane@example.com}} $|$
+    \href{https://www.linkedin.com/in/janedoe}{\underline{linkedin.com/in/janedoe}} $|$
+    \href{https://github.com/janedoe}{\underline{github.com/janedoe}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+% Education goes first for students. Start year -- grad month/year (a future end date already
+% reads as in-progress). Bold it when the posting asks to see the grad date.
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Example University}{City, ST}
+      {Bachelor of Science in Computer Science}{\textbf{2024 -- May 2028}}
+      \resumeItemListStart
+        \resumeItem{GPA: 3.8/4.0 $|$ Dean's List}
+        \resumeItem{Courses: Data Structures \& Algorithms, Operating Systems, Databases, Probability \& Statistics}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+% \resumeSubheading{Job Title}{Dates}{Company}{Location} -- title is bold, company italic.
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Software Engineering Intern}{May 2026 -- Aug 2026}
+      {Example Corp}{City, ST}
+      \resumeItemListStart
+        \resumeItem{Built \textbf{Python} APIs serving 10K+ requests per day, cutting p95 latency by 30\%}
+        \resumeItem{Containerized services with \textbf{Docker} and shipped them through \textbf{CI/CD} pipelines}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+% \resumeProjectHeading{\textbf{Name} $|$ \emph{Stack}}{link}
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Example Project} $|$ \emph{Python, PyTorch}}{\href{https://github.com/janedoe/example}{\underline{GitHub}}}
+          \resumeItemListStart
+            \resumeItem{Trained a 5M-parameter model in \textbf{PyTorch}, reaching 92\% test accuracy}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+% Five categories by default; drop any that would be empty. Only list things actually used.
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, Java, SQL} \\
+     \textbf{Frameworks \& Libraries}{: PyTorch, React} \\
+     \textbf{Cloud \& Infrastructure}{: AWS, Docker, Kubernetes, CI/CD} \\
+     \textbf{Data \& Messaging}{: PostgreSQL, Kafka} \\
+     \textbf{Observability \& Tools}{: Grafana, Git}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}

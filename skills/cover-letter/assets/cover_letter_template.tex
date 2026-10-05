@@ -1,0 +1,57 @@
+%-------------------------
+% Cover letter, same header as the Jake's-template resume
+% Tailored for: {{COMPANY}}, {{ROLE}} ({{TERM}}, {{LOCATION}})
+% Fill every double-brace placeholder from tailor-profile.md (Identity) and cover-letter-profile.md.
+% Drop any contact item the profile doesn't have, together with its $|$ separator.
+%-------------------------
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\addtolength{\oddsidemargin}{-0.25in}
+\addtolength{\evensidemargin}{-0.25in}
+\addtolength{\textwidth}{0.5in}
+\addtolength{\topmargin}{-.4in}
+\addtolength{\textheight}{0.8in}
+
+\urlstyle{same}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{9pt}
+
+\begin{document}
+
+%----------HEADING (same as resume)----------
+\begin{center}
+    \textbf{\Huge \scshape {{NAME}}} \\ \vspace{1pt}
+    \small {{PHONE}} $|$ \href{mailto:{{EMAIL}}}{\underline{{{EMAIL}}}} $|$
+    \href{{{LINKEDIN_URL}}}{\underline{{{LINKEDIN_TEXT}}}} $|$
+    \href{{{GITHUB_URL}}}{\underline{{{GITHUB_TEXT}}}}
+\end{center}
+\vspace{4pt}
+
+{{DATE}}
+
+{{HEADER_LINE_1}} \\
+{{HEADER_LINE_2}}
+
+{{GREETING}}
+
+{{P1}}
+
+{{P2}}
+
+{{P3}}
+
+{{P4}}
+
+{{P5}}
+
+{{SIGN_OFF}} \\
+{{NAME}}
+
+\end{document}
