@@ -217,16 +217,17 @@ Start from `assets/jake_template.tex`. Its project-heading macro is already fixe
 - **Experience:** `\resumeSubheading{Title}{Dates}{Company}{Location}`. The title is bold on top and the company italic below, because titles are what the 7-second scan reads.
 - **Projects:** `Name | stack | GitHub`, with at least 2 lines each (see §4).
 - **Technical Skills: tailored to the job description every time, never copied from the original resume.** Build it from two sources only:
-  1. **The posting's keywords:** every hard skill or tool in the JD that the user has some basis for. That includes any JD keyword that couldn't fit naturally into a bullet. The skills section is where it lands, so no posting keyword is lost.
+  1. **The posting's technical keywords, 100% of them (mandatory).** Every language, framework, library, tool, platform, cloud service and database named anywhere in the JD goes into the Skills section, with no exceptions and no "no basis" skips. That includes either/or lists: when the JD says "AWS, GCP or Azure", all the named items go in Skills, even though bullets still pick one. The skills section is the guaranteed home for every JD tool, so ATS searches and recruiters always find it.
   2. **The user's relevant background:** skills from their original resumes, profile and repos that relate to *this* role, even if the posting doesn't name them (e.g. Python and SQL for an automation role).
 
   **Then:**
   - **Drop everything irrelevant to this role.** A Power Platform automation job gets no Rust, Ruby, Perl or Elixir, even though the original resume lists them. An unrelated skill dilutes the match.
   - **Put posting keywords first** in each line, then the related background skills.
   - **Use fixed categories, in this order:** Languages · Frameworks & Libraries · Cloud & Infrastructure · Data & Tools. Add a role-specific first category only when the posting centres on a tool family (e.g. "Automation: Power Automate, Power Apps, Copilot" for an automation role). Drop any empty category. Use at most 5 categories.
-  - **Every category fits on ONE line** (about 8 items). Cut the least relevant items to fit, never wrap.
+  - **Every category fits on ONE line** (about 8–10 items). When space is tight, cut the user's background skills first; **JD technical keywords are never cut.** If they still don't fit, rebalance them across categories or add the one role-specific category.
   - Use each tool's exact posting spelling ("Power Automate", not "PowerAutomate").
-  - No tool the user has never used, and no either/or alternatives they didn't pick (plausibility test, §3).
+  - Background skills (source 2) must be things the user has actually used. JD keywords (source 1) go in regardless. Any the user has no basis for are flagged in the report's forced list, so they can prepare for questions.
+  - **Check:** grep the final PDF for every technical keyword in the JD. The report shows "Skills coverage: X/X JD technical keywords". It must be 100%; if not, add the missing ones before finishing.
   - The report's Table 1 marks which posting keywords sit only in Skills ("Skills only"). That's acceptable for Nice-to-have keywords. Mandatory, Critical and Important ones still need an experience bullet (§3).
 - **Escape LaTeX specials:** `&`→`\&`, `%`→`\%`, `~`→`$\sim$`, en dash `--`. No Unicode arrows; write "German-to-English".
 
@@ -368,7 +369,7 @@ In chat, show the tables plus a short reasoning paragraph. The full file sits ne
 
 - Used? is ✅ (on the page), 🟡 (partly or indirectly, e.g. shown only through a concept or only in the cover letter), or ❌.
 - Include the cover-letter location whenever a letter exists in the same folder.
-- After Table 1, write one line of coverage stats for **JD keywords only**: "Mandatory X/Y · Critical X/Y · Important X/Y · Nice-to-have X/Y · Forced placements: N". Research keywords never count toward coverage. Mandatory, Critical and Important must all be full. If one isn't, go back and place it before posting.
+- After Table 1, write one line of coverage stats for **JD keywords only**: "Mandatory X/Y · Critical X/Y · Important X/Y · Nice-to-have X/Y · Forced placements: N · Skills coverage: X/X JD technical keywords (must be 100%)". Research keywords never count toward coverage. Mandatory, Critical and Important must all be full. If one isn't, go back and place it before posting.
 - After the stats, list the **forced keywords** in one line each: where each was placed, and how to talk about it in an interview.
 
 Save the same table to `report.md`. Don't make the user ask for it.

@@ -10,8 +10,12 @@ Job description in → finished one-page cover letter (`.tex` + `.pdf`) out. **N
 ## Hard rules (every user, every letter; no profile can override these)
 
 1. **Header format:** `Start Availability: <Month> <Year>` (always with a year), then a line holding **only a length** ("4 months", "16 weeks", "4/8/12 months"). Never a sentence or a date range.
-2. **Paragraph 2 is only the user's own skills,** each tied to where they used it. It never mentions the posting, the job description or the company.
-3. **Goodbye:** at most 35 words in 2 sentences (3 only to mention a required transcript): thanks plus at most one logistics fact, then contact details. No employer names.
+2. **Paragraph 2 is the user's technical background:**
+   - It opens by saying how their background fits the company's engineering work.
+   - It names the relevant languages and tools as a short prose list, plus any relevant coursework.
+   - It shows those skills in use in the user's **current role** (what they build, with which tools).
+   - Stories, results and metrics are saved for paragraph 4.
+3. **Goodbye:** exactly 2 sentences, using this pattern: "Thank you for your time and consideration." then "I'd welcome the chance to discuss how I could contribute to <Company>, and you can reach me at <email> or <phone>." Nothing else goes in it: no graduation date, no logistics, no employer names, no semicolons. The only exception is a third sentence when the posting requires a transcript ("I've included my transcript with my resume.").
 4. **No bold anywhere in the letter.** Bold keywords belong on the resume only.
 5. **No employer named in more than 2 paragraphs.** The in-depth job is told in paragraph 4 only.
 6. **No invention:**
@@ -93,15 +97,15 @@ Dear Hiring Manager,
 - **The term must match the posting.** If the profile's default contradicts it, use the posting's term and say so in the note.
 - No company address block unless the profile asks for one.
 
-**Body (default structure):** five paragraphs, ~420–480 words, one page.
+**Body (default structure):** five paragraphs, ~430–500 words, one page.
 
 | # | Paragraph | Words | Rules |
 |---|---|---|---|
-| 1 | Hook about the company | 70–80 | Role, location, term. Then one specific company detail tied to something the user built: from the posting when the JD is detailed, from research when it's thin. |
-| 2 | Technical skills | ~60 | **Only the user's own technical skills**, each tied to where they used it ("I write Python for… at <Employer>"). Pick the ones relevant to this role. **No references to the posting or the company here**: no "your posting says…", "the tool from your posting", "your team uses…". The hook and the experience paragraph make the connection to the job. No claims about tools the user hasn't used, and no "I want to learn X" (that belongs nowhere, or briefly at the end of P4). |
-| 3 | One project | 110–130 | Opens plainly: "I built <Project>, …". Stack, approach, real numbers from the repo, one thing the user noticed or decided, then the posting task it maps to. |
-| 4 | Work experience (most important) | 170–190 | One job told in depth (the most relevant), the others one sentence each. Introduce every employer the way the profile's employer-intro table says. End with curiosity about the company's users. |
-| 5 | Goodbye | ≤35 words, exactly 2 sentences (3 only when a transcript is required) | Sentence 1: thanks, plus at most ONE real logistics fact if the posting raises it (e.g. "I'm based in Toronto and available for the full term."). Sentence 2: "You can reach me at <email> or <phone>." Optional sentence 3, only if the posting requires a transcript: "I've included my transcript with my resume." **No employer names, no graduation date unless the posting checks one, no "I know <city> from…", and no stacking unrelated facts in one sentence.** |
+| 1 | Hook about the company | 65–80 | Role, location, term. Then one specific company detail tied to something the user built: from the posting when the JD is detailed, from research when it's thin. If the posting checks the graduation date, add it here as its own short sentence ("I graduate in December 2027."). |
+| 2 | Technical background | 90–110 | **The pattern** (see `references/examples.md`):<br>(1) "My technical background aligns closely with <Company>'s <area> work."<br>(2) "I have experience with <the posting-relevant languages, frameworks and tools the user actually has>." This is a short prose list.<br>(3) Optionally, relevant coursework or adjacent familiarity, tied to the company's stack ("I also have Haskell coursework experience, which makes <Company>'s backend stack particularly interesting to me.").<br>(4–5) "In my current role as <title> at <Employer>, I build…": what the user builds there day to day, naming the tools, to show the skills in real use.<br>**No stories, results or metrics here;** those are for P4. Only tools the user has actually used. No "I want to learn X". |
+| 3 | One project | 100–120 | Opens plainly: "I built <Project>, …". Stack, approach, real numbers from the repo, one thing the user noticed or decided, then the posting task it maps to. |
+| 4 | Work experience (most important) | 160–180 | One job told in depth (the most relevant), the others one sentence each. Stories, results and metrics live here. Introduce every employer the way the profile's employer-intro table says. End with curiosity about the company's users. |
+| 5 | Goodbye | exactly 2 sentences | "Thank you for your time and consideration." / "I'd welcome the chance to discuss how I could contribute to <Company>, and you can reach me at <email> or <phone>." Add a third sentence only if the posting requires a transcript: "I've included my transcript with my resume." **Nothing else: no graduation date, no logistics, no employer names, no semicolons.** |
 
 ## 4. Writing rules (general; the profile can add more)
 
@@ -111,10 +115,10 @@ Dear Hiring Manager,
   - **Forced resume keywords never appear in the letter as experience.** If the resume placed a keyword without evidence (marked "forced" in the report), the letter must not claim it ("I used Copilot on those automations" is banned). Leave it out of the letter entirely.
   - **No invented process, reasons or decisions** ("Before building anything, I mapped the steps with staff…"). Only use a reason or decision when the resume, profile, Story bank or repo states it. Otherwise describe what was built and the result.
 - **Story slot:** paragraph 4 is strongest with one real incident (a bug fixed, a call made). Use one only if it's in the profile's Story bank or the user gave it. Otherwise write from facts and, in the note, name the sentence a real story would replace.
-- **Don't repeat employers.** Each employer is named in at most 2 paragraphs. The in-depth job is told in P4 only. P1 may mention it once in passing; P2 names where each skill was used, using each employer at most once; P5 names no employer. If one employer is the only match for the posting, still spread the evidence: use P2 for other employers' skills and P3 for a project.
+- **Don't repeat employers.** Each employer is named in at most 2 paragraphs. The in-depth job is told in P4 only. P1 may mention it once in passing; P2 names the current employer once (where the skills are in use); P5 names no employer. If one employer is the only match for the posting, still spread the evidence: use P2 for other employers' skills and P3 for a project.
 - **Vary the shape.** Don't reuse the same project and angle as the user's recent letters (check the workspace's `cover-letter-examples.md` and the other `tailored/*/<FilePrefix>_CoverLetter.tex` letters).
 - **No bold anywhere in the letter.** Bolding keywords is for the resume only. A letter is plain prose.
-- **Banned** (plus anything the profile adds): "I am writing to express", "passionate", "proven track record", "detail-oriented", "leverage", em dashes, skill lists, filler sign-offs.
+- **Banned** (plus anything the profile adds): "I am writing to express", "passionate", "proven track record", "detail-oriented", "leverage", em dashes, semicolons, bullet-point skill lists (P2's single prose sentence listing skills is fine), and filler sign-offs like "I look forward to hearing from you".
 - Use the company's own names for things (product names, team names) where the user's work matches.
 - Job titles match the tailored resume and the title policy in `tailor-profile.md`.
 
@@ -134,9 +138,9 @@ Load and run the `humanizer` skill's checks (Skill tool). It ships alongside thi
 Check the draft against §3 and the profile, line by line. Fix anything that fails, then re-check:
 - [ ] Header: date / "Start Availability: <Month> <YYYY>" / length only / greeting, each on its own line
 - [ ] 5 paragraphs in the profile's order, each within its word range
-- [ ] P2 is only the user's skills tied to where they used them, with no mention of the posting or the company
+- [ ] P2 follows the technical-background pattern (alignment line → languages and tools → optional coursework → what they build in the current role), with no stories or metrics
 - [ ] No employer named in more than 2 paragraphs; P5 names none
-- [ ] P5 is ≤35 words and 2 sentences (3 with a transcript)
+- [ ] P5 is exactly the two-sentence goodbye pattern (3 with a transcript), with no graduation date, no semicolons and nothing glued on
 - [ ] No bold, no em dashes, no banned phrases
 - [ ] No sentence claims a forced keyword, an invented decision or an invented story
 - [ ] Total words within the profile's target
@@ -145,7 +149,7 @@ Check the draft against §3 and the profile, line by line. Fix anything that fai
 
 1. Copy `assets/cover_letter_template.tex` and fill every `{{PLACEHOLDER}}` from the profiles and the draft. Save it as `tailored/<Company_Role>/<FilePrefix>_CoverLetter.tex`, with the file prefix from Identity. **Use the Write tool, not a shell heredoc:** shells collapse LaTeX's `\\` line breaks into `\`, which glues the header lines together and the sign-off to the name. Escape LaTeX specials (`&`→`\&`, `%`→`\%`).
 2. Compile with pdfLaTeX. To find the compiler, see resume-tailor's `references/latex-build.md` (Windows, macOS and Linux). Judge success by `Output written on ... (1 page`. Delete `.aux/.log/.out`.
-3. Count body words (`pdftotext`, from the greeting to the sign-off) against the profile's target (default 420–480).
+3. Count body words (`pdftotext`, from the greeting to the sign-off) against the profile's target (default 430–500).
 4. Render the page and look at it: one page, the header lines and the sign-off each on their own lines, no bold text, no stray characters, no `{{` left anywhere. Also `grep -c textbf` the `.tex` body (everything after the greeting): it must be 0.
 5. Send the PDF to the user (SendUserFile, display render).
 

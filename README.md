@@ -110,13 +110,14 @@ my-job-search/
 **Resume**
 - Built only from your real experience: your original resumes, GitHub repos and confirmed facts. Never from a previous tailored version.
 - Every posting keyword is extracted and ranked **Mandatory / Critical / Important / Nice-to-have / Soft**, then placed where it's most believable. You get a table showing what was used, where, and why.
-- The Technical Skills section is rebuilt for each job: posting keywords first, irrelevant skills dropped, one line per category.
+- The Technical Skills section is rebuilt for each job. It contains **100% of the languages and tools named in the posting**, then your related skills, with irrelevant ones dropped and one line per category. The report shows `Skills coverage: X/X`.
 - Bullets follow *what you built → for whom / at what scale → result*, with a metric in every job, past tense, and no AI-sounding words.
 - The page is measured, not eyeballed: `scripts/measure_fill.pl` confirms it's exactly one page and full.
 
 **Cover letter** (hard rules that no profile can override)
-- Five paragraphs: company hook → your skills → one project → your experience (the core) → a two-sentence goodbye.
-- Paragraph 2 is only your skills, tied to where you used them.
+- Five paragraphs: company hook → your technical background → one project → your experience (the core) → a two-sentence goodbye.
+- Paragraph 2 is your technical background: how it fits the company's engineering work, your languages and tools, any relevant coursework, and what you build in your current role. Stories and metrics are saved for paragraph 4.
+- The goodbye is a fixed, natural pattern: "Thank you for your time and consideration. I'd welcome the chance to discuss how I could contribute to <Company>, and you can reach me at…". No graduation date or other facts glued on.
 - No bold, no em dashes, no "I am writing to express", no invented stories or reasons.
 - Each employer appears in at most two paragraphs.
 - Every sentence is checked by reading it aloud: one idea per sentence, plain correct English.

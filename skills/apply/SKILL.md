@@ -83,9 +83,9 @@ Read the text extracted from both final PDFs and confirm:
 - [ ] the letter passes cover-letter §5b:
   - exact header format ("Start Availability: <Month> <Year>" / length only)
   - no bold
-  - P2 is only the user's skills, with no mention of the posting
+  - P2 follows the technical-background pattern (alignment line, languages and tools, current-role work; no stories or metrics)
   - no employer named in more than 2 paragraphs
-  - the goodbye is ≤35 words with no employer names
+  - the goodbye is exactly the two-sentence pattern (thanks, then "I'd welcome the chance… reach me at…"), with no graduation date and no semicolons
   - no forced resume keyword claimed as experience in the letter
 - [ ] the resume's Technical Skills section is tailored to this posting (posting keywords first, irrelevant skills dropped, each category on one line)
 

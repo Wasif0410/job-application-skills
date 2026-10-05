@@ -18,14 +18,14 @@ Sincerely,
 <Your Name>
 ```
 
-## Structure: five paragraphs in this order, about 420–480 words, one page
+## Structure: five paragraphs in this order, about 430–500 words, one page
 | # | Paragraph | Words | Notes |
 |---|---|---|---|
-| 1 | Hook about the company | 70–80 | Role, location, term + one company detail tied to something you built |
-| 2 | Technical skills | ~60 | Only your own skills, each tied to where you used it. No mention of the posting or company. |
-| 3 | One project | 110–130 | Opens "I built <Project>, …" |
-| 4 | Work experience (most important) | 170–190 | One job in depth, others one sentence each; ends with curiosity about the company's users |
-| 5 | Goodbye | ≤35, 2 sentences | Thanks (+ one logistics fact if relevant), then contact details. No employer names. |
+| 1 | Hook about the company | 65–80 | Role, location, term + one company detail tied to something you built |
+| 2 | Technical background | 90–110 | "My technical background aligns closely with <Company>'s <area> work." Then your relevant languages and tools, any related coursework, and what you build in your current role. No stories or metrics (those go in 4). |
+| 3 | One project | 100–120 | Opens "I built <Project>, …" |
+| 4 | Work experience (most important) | 160–180 | One job in depth, others one sentence each; ends with curiosity about the company's users |
+| 5 | Goodbye | 2 sentences | "Thank you for your time and consideration." + "I'd welcome the chance to discuss how I could contribute to <Company>, and you can reach me at <email> or <phone>." |
 
 ## How to introduce each employer
 | Employer | Intro |
