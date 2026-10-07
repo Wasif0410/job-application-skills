@@ -116,7 +116,7 @@ Dear Hiring Manager,
   - **No invented process, reasons or decisions** ("Before building anything, I mapped the steps with staff…"). Only use a reason or decision when the resume, profile, Story bank or repo states it. Otherwise describe what was built and the result.
 - **Story slot:** paragraph 4 is strongest with one real incident (a bug fixed, a call made). Use one only if it's in the profile's Story bank or the user gave it. Otherwise write from facts and, in the note, name the sentence a real story would replace.
 - **Don't repeat employers.** Each employer is named in at most 2 paragraphs. The in-depth job is told in P4 only. P1 may mention it once in passing; P2 names the current employer once (where the skills are in use); P5 names no employer. If one employer is the only match for the posting, still spread the evidence: use P2 for other employers' skills and P3 for a project.
-- **Vary the shape.** Don't reuse the same project and angle as the user's recent letters (check the workspace's `cover-letter-examples.md` and the other `tailored/*/<FilePrefix>_CoverLetter.tex` letters).
+- **Vary the shape.** Don't reuse the same project and angle as the user's recent letters (check the workspace's `cover-letter-examples.md` and the other `tailored/*/<FilePrefix>_CoverLetter_*.tex` letters).
 - **No bold anywhere in the letter.** Bolding keywords is for the resume only. A letter is plain prose.
 - **Banned** (plus anything the profile adds): "I am writing to express", "passionate", "proven track record", "detail-oriented", "leverage", em dashes, semicolons, bullet-point skill lists (P2's single prose sentence listing skills is fine), and filler sign-offs like "I look forward to hearing from you".
 - Use the company's own names for things (product names, team names) where the user's work matches.
@@ -147,7 +147,7 @@ Check the draft against §3 and the profile, line by line. Fix anything that fai
 
 ## 6. Build and check
 
-1. Copy `assets/cover_letter_template.tex` and fill every `{{PLACEHOLDER}}` from the profiles and the draft. Save it as `tailored/<Company_Role>/<FilePrefix>_CoverLetter.tex`, with the file prefix from Identity. **Use the Write tool, not a shell heredoc:** shells collapse LaTeX's `\\` line breaks into `\`, which glues the header lines together and the sign-off to the name. Escape LaTeX specials (`&`→`\&`, `%`→`\%`).
+1. Copy `assets/cover_letter_template.tex` and fill every `{{PLACEHOLDER}}` from the profiles and the draft. Save it as `tailored/<Company_Role>/<FilePrefix>_CoverLetter_<JobName>.tex` (JobName = `<Company>_<RoleTag>`, the short name defined in resume-tailor §7, e.g. `Acme_SWEWeb`; use the same JobName as the resume), with the file prefix from Identity. The PDF it compiles to carries the same name. **Use the Write tool, not a shell heredoc:** shells collapse LaTeX's `\\` line breaks into `\`, which glues the header lines together and the sign-off to the name. Escape LaTeX specials (`&`→`\&`, `%`→`\%`).
 2. Compile with pdfLaTeX. To find the compiler, see resume-tailor's `references/latex-build.md` (Windows, macOS and Linux). Judge success by `Output written on ... (1 page`. Delete `.aux/.log/.out`.
 3. Count body words (`pdftotext`, from the greeting to the sign-off) against the profile's target (default 430–500).
 4. Render the page and look at it: one page, the header lines and the sign-off each on their own lines, no bold text, no stray characters, no `{{` left anywhere. Also `grep -c textbf` the `.tex` body (everything after the greeting): it must be 0.

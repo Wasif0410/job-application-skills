@@ -90,8 +90,8 @@ my-job-search/
 ├── job-tracker/
 │   └── applications.csv   every posting + status (prepared → applied → oa → interviewing → offer/rejected)
 └── tailored/
-    └── Company_Role_Term/ jd.md, resume.tex, <You>_Resume.pdf, <You>_CoverLetter.pdf,
-                           report.md, application-kit.md, <You>_Company_Role_Application.zip
+    └── Company_Role_Term/ jd.md, resume.tex, <You>_Resume_Company_SWE.pdf, <You>_CoverLetter_Company_SWE.pdf,
+                           report.md, application-kit.md, <You>_Company_SWE_Application.zip
 ```
 
 ## Everyday use

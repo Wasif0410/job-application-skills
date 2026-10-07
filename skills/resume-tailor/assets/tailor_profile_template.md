@@ -4,7 +4,7 @@ Your personal file. The resume-tailor, cover-letter and /apply skills read it on
 
 ## Identity (read by resume-tailor, cover-letter and /apply)
 - Name:
-- File prefix:   (e.g. JaneDoe → JaneDoe_Resume.pdf, JaneDoe_CoverLetter.pdf)
+- File prefix:   (e.g. JaneDoe → JaneDoe_Resume_<Company>_<RoleTag>.pdf, e.g. JaneDoe_Resume_Acme_SWEWeb.pdf)
 - Phone:
 - Email:
 - LinkedIn:   (text as shown + full URL)

@@ -40,6 +40,7 @@ The two skills it runs stay independent and keep working on their own. This skil
 - **Identity** (name, file prefix, contact, school, degree, graduation date, work authorization, location) comes from the **Identity** section of `tailor-profile.md`. Use it for every file name, form answer and header. **Never hard-code a person's details in this skill.**
 - **Letter style** comes from `cover-letter-profile.md`, which the cover-letter skill reads and creates if missing.
 - `<Prefix>` below means the Identity file prefix (e.g. `JaneDoe`).
+- `<JobName>` means `<Company>_<RoleTag>`, the short name defined in resume-tailor §7 (e.g. `Acme_SWEWeb`, `Globex_SWE`). Every resume and cover letter file carries it: `<Prefix>_Resume_<JobName>.pdf`, `<Prefix>_CoverLetter_<JobName>.pdf`.
 
 ## 1. Set up the posting (once)
 
@@ -60,15 +61,15 @@ Both skills read `research.md` instead of searching again, so the resume and let
 
 **Call the Skill tool now (required):** `skill: "resume-tailor"`, `args: "Called from /apply. Folder: tailored/<folder>/ (jd.md + research.md already there; reuse them). No questions mid-run."` Then follow the loaded skill fully (grounding, keyword mapping, bullets, page fill, verify, report, keyword tables, profile updates), with these changes for this run:
 - **No questions mid-run.** Anything resume-tailor would ask (a missing number, a name) goes into the kit's *Questions for you* list instead; write the bullet from what's known. A confirmed fact with no employer attached is placed into the most plausible role, not asked about.
-- Its §8 keyword tables are **held for the hand-off** (step 9), where they get a cover letter column. They are never dropped.
+- Its §8 keyword tables are **held for the hand-off** (step 9). They are never dropped. They stay resume-only: no cover letter column.
 
-Output: `resume.tex`, `<Prefix>_Resume.pdf`, `report.md`.
+Output: `resume.tex`, `<Prefix>_Resume_<JobName>.pdf`, `report.md`.
 
 ## 4. Cover letter: MANDATORY call to /cover-letter
 
 **Call the Skill tool now (required):** `skill: "cover-letter"`, `args: "Called from /apply. Folder: tailored/<folder>/ (jd.md, research.md and the tailored resume are already there)."` Then follow the loaded skill fully. It reuses `research.md` and must ground itself in **the tailored resume that was just built** as well as the original resumes. The letter can't claim anything the resume doesn't support, and it should lean on the same experiences the resume leads with.
 
-Output: `<Prefix>_CoverLetter.tex`, `<Prefix>_CoverLetter.pdf`.
+Output: `<Prefix>_CoverLetter_<JobName>.tex`, `<Prefix>_CoverLetter_<JobName>.pdf`.
 
 Always produce the letter, even when the portal has no cover-letter field (note that in the kit; the user decides whether to upload it).
 
@@ -79,7 +80,7 @@ Read the text extracted from both final PDFs and confirm:
 - [ ] every tool named in the letter appears somewhere on the resume
 - [ ] the letter's availability and term match the posting, and the resume's graduation date satisfies any grad-date rule
 - [ ] the name and contact line are identical on both, and match Identity
-- [ ] both are exactly one page, named `<Prefix>_Resume.pdf` and `<Prefix>_CoverLetter.pdf`, with no `{{` placeholders left
+- [ ] both are exactly one page, named `<Prefix>_Resume_<JobName>.pdf` and `<Prefix>_CoverLetter_<JobName>.pdf`, with no `{{` placeholders left
 - [ ] the letter passes cover-letter §5b:
   - exact header format ("Start Availability: <Month> <Year>" / length only)
   - no bold
@@ -122,9 +123,9 @@ Posting: <url>   |   Deadline/status: <rolling / date>   |   Pay: <range>
 
 ## 7. Package
 
-1. Zip the three deliverables into one file in the posting's folder: `<Prefix>_<Company>_<Role>_Application.zip`, containing `<Prefix>_Resume.pdf`, `<Prefix>_CoverLetter.pdf` and `application-kit.md`.
-   - PowerShell: `Compress-Archive -Path <Prefix>_Resume.pdf,<Prefix>_CoverLetter.pdf,application-kit.md -DestinationPath <zip> -Force`
-   - Bash/macOS/Linux: `zip -j <zip> <Prefix>_Resume.pdf <Prefix>_CoverLetter.pdf application-kit.md` (on Windows, MiKTeX ships a `zip`)
+1. Zip the three deliverables into one file in the posting's folder: `<Prefix>_<JobName>_Application.zip`, containing `<Prefix>_Resume_<JobName>.pdf`, `<Prefix>_CoverLetter_<JobName>.pdf` and `application-kit.md`.
+   - PowerShell: `Compress-Archive -Path <Prefix>_Resume_<JobName>.pdf,<Prefix>_CoverLetter_<JobName>.pdf,application-kit.md -DestinationPath <zip> -Force`
+   - Bash/macOS/Linux: `zip -j <zip> <Prefix>_Resume_<JobName>.pdf <Prefix>_CoverLetter_<JobName>.pdf application-kit.md` (on Windows, MiKTeX ships a `zip`)
 2. Delete LaTeX leftovers (`.aux/.log/.out`).
 
 ## 8. Tracker
@@ -146,7 +147,7 @@ date_prepared,company,role,term,location,req_id,posting_url,folder,status,date_a
 Send the resume PDF and the cover letter PDF (SendUserFile, display render), then a short note:
 - the posting, term and location targeted (and any switch, e.g. to a home-country version)
 - **the research decision**, one line: "Research: skipped, because the JD is detailed (<why>)" or "Research: done, because the JD is thin (<why>)". Only when research was done, add 3–5 bullets on the most valuable insights, with sources.
-- **the keyword tables from resume-tailor §8** (always required): Table 1 holds every keyword actually in this JD, each with a quoted JD source, a priority (Mandatory / Critical / Important / Nice-to-have / Soft), Used? ✅🟡❌, and its resume + cover letter location. Then the JD-only coverage line and the forced-keyword list. Table 2 holds extra keywords from research or the profile, each with its source, or the line "none: research skipped". Check them against both final PDFs.
+- **the keyword tables from resume-tailor §8** (always required): Table 1 holds every keyword actually in this JD, each with a quoted JD source, a priority (Mandatory / Critical / Important / Nice-to-have / Soft), Used? ✅🟡❌, and where it sits on the **resume** (resume only, no cover letter column; a keyword only in the letter counts as ❌). Then the JD-only coverage line and the forced-keyword list. Table 2 holds extra keywords from research or the profile, each with its source, or the line "none: research skipped". Check them against the final resume PDF.
 - where the zip is
 - the **Before you submit** list from the kit
 - one line on what was added to `tailor-profile.md` and `cover-letter-profile.md`

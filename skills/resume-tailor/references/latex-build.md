@@ -30,7 +30,7 @@ pdflatex -interaction=nonstopmode -halt-on-error resume.tex
 - Success prints `Output written on resume.pdf (1 page, ...)`. The page count is right there, so check it every time.
 - The first MiKTeX run may pause to download packages. Give it a few minutes.
 - A harmless warning like `you have not checked for MiKTeX updates` can surface as a non-zero exit in PowerShell. Judge success by the "Output written" line.
-- Rename or copy the output to `<FirstLast>_Resume.pdf`, then delete `resume.aux`, `resume.log` and `resume.out`.
+- Rename or copy the output to `<FirstLast>_Resume_<Company>_<RoleTag>.pdf` (naming rules in SKILL.md §7), then delete `resume.aux`, `resume.log` and `resume.out`.
 - If it fails, read the lines starting with `!` in `resume.log`. The usual causes are an unescaped `&`, `%`, `#` or `_`, or an unbalanced `\resumeItemListStart`/`\resumeItemListEnd`.
 
 ## 4. Look at the result

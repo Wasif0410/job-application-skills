@@ -284,11 +284,29 @@ Fix and recompile until every box passes. Then delete `.aux/.log/.out`.
 ```
 tailored/<Company>_<Role>_<ReqID>/
 ├── resume.tex
-├── <FilePrefix>_Resume.pdf      # recruiters see the filename
+├── <FilePrefix>_Resume_<JobName>.pdf   # recruiters see the filename
 ├── jd.md
 ├── report.md
 └── versions/                   # snapshots before significant edits
 ```
+
+**File names: `<FilePrefix>_Resume_<JobName>.pdf`**, where `<JobName>` = `<Company>_<RoleTag>`, kept short so upload widgets don't truncate it (e.g. `JaneDoe_Resume_Acme_SWEWeb.pdf`, `JaneDoe_Resume_Globex_SWE.pdf`). The cover letter uses the same JobName.
+- **Company:** one word, PascalCase, no spaces or punctuation (`Acme`, `GlobexCorp`, `NVIDIA`).
+- **RoleTag:** a short abbreviation of the role, about 2–8 characters, built from these pieces. Drop "Intern", "Co-op", "Summer", the year and any req ID.
+
+  | Role words | Tag |
+  |---|---|
+  | Software Engineer / Developer | `SWE` |
+  | Machine Learning Engineer | `MLE` |
+  | AI Engineer / Applied AI | `AIE` |
+  | Data Engineer / Data Scientist / Data Analyst | `DE` / `DS` / `DA` |
+  | Full Stack | `FullStack` |
+  | QA / Test | `QA` |
+  | DevOps / Cloud / SRE / Platform | `DevOps` / `Cloud` / `SRE` / `Platform` |
+  | Product Manager | `PM` |
+  | Embedded / Firmware | `Embedded` |
+
+  Add a one-word focus when the title has one: `SWE` + Web → `SWEWeb`, Backend → `SWEBackend`, Frontend → `SWEFrontend`, Mobile → `SWEMobile`, Infra → `SWEInfra`. A plain "Software Engineer Intern" is just `SWE`. For a title that fits none of these, use its 1–2 most telling words in PascalCase.
 Before any significant edit to an existing tailored resume, copy the current `.tex` and `.pdf` into `versions/` with a short descriptive name (e.g. `before-metrics-fix`). Users want to compare, and a recompile overwrites the PDF.
 
 ---
@@ -356,9 +374,9 @@ In chat, show the tables plus a short reasoning paragraph. The full file sits ne
 
 **Table 1: Keywords from the job description** (only terms in the JD), sorted by priority (Mandatory first):
 
-| Keyword | Priority | JD source (quote) | Used? | Where (resume / cover letter) | Basis, or why not + fix |
+| Keyword | Priority | JD source (quote) | Used? | Where on the resume | Basis, or why not + fix |
 |---|---|---|---|---|---|
-| Python | Mandatory | "Strong Python foundations" | ✅ | <Employer A> bullet 1, Research bullet 2 / CL P2 | explicit |
+| Python | Mandatory | "Strong Python foundations" | ✅ | <Employer A> bullet 1, Research bullet 2, Skills | explicit |
 | LightGBM | Important | "Interest in tools such as PyTorch, LightGBM" | ❌ | none | no basis; a weekend project would cover it |
 
 **Table 2: Extra keywords** (not in this JD). Name the source of each one: a research page when research was done, or "profile" for a term added by a profile rule. If research was skipped and no profile terms were added, replace the table with one line: "Table 2: none. Research was skipped because the JD is detailed, so every keyword comes from the JD."
@@ -367,8 +385,8 @@ In chat, show the tables plus a short reasoning paragraph. The full file sits ne
 |---|---|---|---|---|
 | AWS | the company's backend co-op posting ("AWS Lambda") | ✅ | <Employer B> bullet 1 | confirmed in profile, placed by rule |
 
-- Used? is ✅ (on the page), 🟡 (partly or indirectly, e.g. shown only through a concept or only in the cover letter), or ❌.
-- Include the cover-letter location whenever a letter exists in the same folder.
+- Used? is ✅ (on the resume), 🟡 (partly or indirectly on the resume, e.g. shown only through a concept), or ❌. It is judged on the **resume only**.
+- **Keywords live on the resume only.** The table never has a cover-letter column, and a keyword that appears only in the cover letter counts as ❌, not 🟡. The cover letter is not a keyword vehicle (and must never claim forced keywords).
 - After Table 1, write one line of coverage stats for **JD keywords only**: "Mandatory X/Y · Critical X/Y · Important X/Y · Nice-to-have X/Y · Forced placements: N · Skills coverage: X/X JD technical keywords (must be 100%)". Research keywords never count toward coverage. Mandatory, Critical and Important must all be full. If one isn't, go back and place it before posting.
 - After the stats, list the **forced keywords** in one line each: where each was placed, and how to talk about it in an interview.
 
