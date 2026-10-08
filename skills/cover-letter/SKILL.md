@@ -66,7 +66,7 @@ Three workspace files in `personal-info/` drive everything personal:
 ## 1. Inputs (read, don't ask)
 
 - **The posting.** If `tailored/<Company_Role>/jd.md` exists, use it. Otherwise fetch the posting and save it as `jd.md` in a new `tailored/<Company_Role>/` folder. Note the exact term, location, start date, grad-date requirement, whether a transcript is required, and whether a version of the role in the user's own country exists.
-- **The user's ground truth:** the original resume in the workspace, `tailor-profile.md` (confirmed facts, titles), their GitHub repos, and the tailored resume in the same folder if there is one. **Never invent experience, tools, numbers or stories.**
+- **The user's ground truth:** the tailored resume in the same folder if there is one, `tailor-profile.md` (confirmed facts, titles), and `personal-info/source-cache.md` (the resume's text + repo facts, see resume-tailor §1). If resume-tailor already read these earlier in this conversation, don't read them again. Fetch a repo only if the cache has nothing on it, then add it to the cache. **Never invent experience, tools, numbers or stories.**
 
 ## 2. Research (only if the JD is thin)
 
@@ -111,7 +111,7 @@ Dear Hiring Manager,
 
 - **First person, plain openers.** Every paragraph's first sentence has the user as the actor and carries the paragraph's point on its own (readers skim first sentences).
 - **Introduce employers with the role,** never a bare company name the reader may not know.
-- **No invention: the letter is stricter than the resume.** Every sentence must be backed by the original resume, the profile (confirmed facts, Story bank), the repos, or the posting itself. In particular:
+- **No invention: the letter is stricter than the resume.** Every sentence must be backed by the original resume (via the source cache), the profile (confirmed facts, Story bank), the repos, or the posting itself. In particular:
   - **Forced resume keywords never appear in the letter as experience.** If the resume placed a keyword without evidence (marked "forced" in the report), the letter must not claim it ("I used Copilot on those automations" is banned). Leave it out of the letter entirely.
   - **No invented process, reasons or decisions** ("Before building anything, I mapped the steps with staff…"). Only use a reason or decision when the resume, profile, Story bank or repo states it. Otherwise describe what was built and the result.
 - **Story slot:** paragraph 4 is strongest with one real incident (a bug fixed, a call made). Use one only if it's in the profile's Story bank or the user gave it. Otherwise write from facts and, in the note, name the sentence a real story would replace.

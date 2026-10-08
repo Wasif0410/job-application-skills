@@ -28,6 +28,7 @@ This skill works out of a folder the user owns (the **workspace**), so their sou
 │   ├── tailor-profile.md       # Identity, contact line, titles, confirmed facts, preferences
 │   ├── cover-letter-profile.md # how their letters look and sound
 │   ├── cover-letter-examples.md# (optional) their approved letters
+│   ├── source-cache.md         # the resume's text + repo facts, read every run; refreshed every 5 runs
 │   └── projects.md             # (optional) projects not fully on the resume
 ├── job-tracker/
 │   └── applications.csv        # one row per posting
@@ -40,7 +41,7 @@ This skill works out of a folder the user owns (the **workspace**), so their sou
 | File | Path |
 |---|---|
 | original resumes | `resumes/` |
-| `tailor-profile.md`, `cover-letter-profile.md`, `cover-letter-examples.md`, `projects.md` | `personal-info/` |
+| `tailor-profile.md`, `cover-letter-profile.md`, `cover-letter-examples.md`, `source-cache.md`, `projects.md` | `personal-info/` |
 | `applications.csv` | `job-tracker/` |
 | `jd.md`, `research.md`, `report.md`, `resume.tex`, PDFs | `tailored/<posting>/` |
 | `checkpoint.md` | workspace root |
@@ -55,6 +56,7 @@ This skill works out of a folder the user owns (the **workspace**), so their sou
 
 0. **The folders.** If the standard layout doesn't exist yet, show the user the tree above and ask: *"Should I set up your workspace like this?"* On yes, create `resumes/`, `personal-info/`, `job-tracker/` (with an `applications.csv` holding just the header row, see /apply §8) and `tailored/`, plus a root `checkpoint.md` from `assets/checkpoint_template.md`. If resume files are sitting loose in the folder, offer to move them into `resumes/`.
 1. **Original resume (exactly one).** If `resumes/` is empty, stop. Ask the user to put their resume there, or to open Claude in the folder that has them. Explain that the original resume is the ground truth for what they've done. If `resumes/` holds more than one resume, ask which one is the ground truth and offer to move the others out (to the Recycle Bin/Trash or an `archive/` folder), so every later run finds exactly one and configures itself.
+1b. **`source-cache.md`.** If `personal-info/source-cache.md` is missing, create it from `assets/source_cache_template.md` (no need to ask; it holds only text copied from the user's own resume and repos): paste the resume's text (extracted as the refresh step in §1 describes), then the facts from **every** public repo on the user's GitHub (see "Pull all repos" in §1). See §1 for how it's used and refreshed.
 2. **`tailor-profile.md`.** If it's missing, say something like: *"You don't have a `tailor-profile.md` yet. It's where your name, contact details, school, graduation date, work authorization and preferences live, so the skills never store them. Should I create it for you? I'll fill in what I can from your resume and ask you for the rest."* On yes:
    - Copy `assets/tailor_profile_template.md` to `personal-info/tailor-profile.md` and pre-fill everything the resume shows (name, contact line, school, degree, dates, employers and titles).
    - Then ask for the rest in **one** message, with suggested defaults:
@@ -85,15 +87,21 @@ If the user declines a file, continue with what's available and ask for the miss
 ## 1. Ground truth
 
 **Content** always comes from three sources:
-- the one original resume in `resumes/`,
-- `personal-info/projects.md` / GitHub repos,
+- the one original resume in `resumes/`, read through `personal-info/source-cache.md` (§1),
+- the repo facts in `personal-info/source-cache.md` (plus `projects.md` if the user keeps one),
 - the confirmed facts in `tailor-profile.md`.
 
 **Format** comes from `assets/jake_template.tex`, or from the user's latest tailored `.tex` if they've customized the layout.
 
 Never start a new posting from a previous tailored resume's content. Inferences made for job A, its keywords and its wording, would leak into job B as if they were facts. Re-derive them every time.
 
-Start from the one resume in `resumes/`. For GitHub projects, read the README and code listing. Project bullets may only state what the repo shows (numbers, stack, results), because recruiters click those links.
+**Read the source cache, not the sources.** Everything read stays in the conversation and is re-read on every later step, so pulling the resume PDF and GitHub READMEs each run costs many times over. Instead:
+- **Every run reads `personal-info/source-cache.md` only:** the resume's text and a short fact list per repo. Don't open the resume PDF or fetch repos.
+- **Count runs.** Each tailoring run for a new posting adds 1 to "Runs since refresh" in the cache's header (follow-up edits to the same posting don't count).
+- **Refresh every 5 runs**, or right away when the user asks (e.g. "I updated my resume", "refresh the cache", "reset the cache", "my repo changed"): re-extract the resume once (PDF: `pdftotext -layout`; .md/.txt/.tex: read it directly; .docx: `pandoc -t plain` or the docx skill), pull all repos again (see "Pull all repos" below), then **update the cache in place**: replace the resume text, add new repo facts, and change or remove a fact only when the new source contradicts it. Keep facts that came from elsewhere (code, approved letters, the user). Set "Last refreshed" to today and reset the count to 0. Tell the user in one line that the cache was refreshed.
+- **Pull all repos** (on the first build and at every refresh): list every public repo on the user's GitHub (from the profile's GitHub link), e.g. `gh repo list <user> --limit 200 --json name,description,isFork,isArchived,primaryLanguage,pushedAt`, or `curl https://api.github.com/users/<user>/repos?per_page=100` if `gh` isn't available. Skip private repos (recruiters can't open them), forks, empty repos and any repo the profile marks "skip". For each remaining repo, read its README's opening section (what it is, stack, numbers, results; no diagrams, badges or full file trees) and record a short fact list. If a repo has no README, record its description and main language. Add new repos, update changed ones, mark deleted or renamed ones. The user never has to list their projects.
+- **Between refreshes:** if the user mentions a repo the cache doesn't have, fetch that one README once and add it.
+- Project bullets may only state what the cache (i.e. the repo) shows: numbers, stack, results. Recruiters click those links.
 
 ---
 
