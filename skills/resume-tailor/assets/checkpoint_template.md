@@ -6,7 +6,7 @@ The overview and handoff notes for this job-search workspace. A new Claude sessi
 - <one line: name, program, graduation, what roles I'm targeting>. The full details are in `personal-info/tailor-profile.md`.
 
 ## Workspace
-- `resumes/`: my original resumes (the ground truth)
+- `resumes/`: my one original resume (the ground truth)
 - `personal-info/`: my profiles (`tailor-profile.md`, `cover-letter-profile.md`, `cover-letter-examples.md`)
 - `job-tracker/applications.csv`: every posting and its status
 - `tailored/`: one folder per posting (resume, cover letter, report, application kit)

@@ -19,8 +19,8 @@ Your personal file. The resume-tailor, cover-letter and /apply skills read it on
 ## Contact line
 <phone> | <email> | <linkedin text> | <github text>
 
-## Base resumes
-- <file> — suits <kinds of roles>
+## Base resume
+- resumes/<file> (keep exactly one file in resumes/)
 
 ## Projects
 - <GitHub profile or projects.md>; list repos worth featuring

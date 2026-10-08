@@ -23,7 +23,7 @@ This skill works out of a folder the user owns (the **workspace**), so their sou
 ```
 <workspace>/
 ├── checkpoint.md               # overview + handoff notes: who the user is, what's been done, what's next
-├── resumes/                    # the user's ORIGINAL resume(s): .pdf/.docx/.tex/.md/.txt (ground truth)
+├── resumes/                    # the user's ONE original resume: .pdf/.docx/.tex/.md/.txt (ground truth)
 ├── personal-info/
 │   ├── tailor-profile.md       # Identity, contact line, titles, confirmed facts, preferences
 │   ├── cover-letter-profile.md # how their letters look and sound
@@ -54,7 +54,7 @@ This skill works out of a folder the user owns (the **workspace**), so their sou
 **First run in a folder (onboarding).** Check the workspace before doing anything else. If something is missing, don't create files silently. Tell the user what's missing and why it's needed, offer to create it, and wait for their yes:
 
 0. **The folders.** If the standard layout doesn't exist yet, show the user the tree above and ask: *"Should I set up your workspace like this?"* On yes, create `resumes/`, `personal-info/`, `job-tracker/` (with an `applications.csv` holding just the header row, see /apply §8) and `tailored/`, plus a root `checkpoint.md` from `assets/checkpoint_template.md`. If resume files are sitting loose in the folder, offer to move them into `resumes/`.
-1. **Original resume(s).** If `resumes/` is empty, stop. Ask the user to put their resume(s) there, or to open Claude in the folder that has them. Explain that the original resume is the ground truth for what they've done.
+1. **Original resume (exactly one).** If `resumes/` is empty, stop. Ask the user to put their resume there, or to open Claude in the folder that has them. Explain that the original resume is the ground truth for what they've done. If `resumes/` holds more than one resume, ask which one is the ground truth and offer to move the others out (to the Recycle Bin/Trash or an `archive/` folder), so every later run finds exactly one and configures itself.
 2. **`tailor-profile.md`.** If it's missing, say something like: *"You don't have a `tailor-profile.md` yet. It's where your name, contact details, school, graduation date, work authorization and preferences live, so the skills never store them. Should I create it for you? I'll fill in what I can from your resume and ask you for the rest."* On yes:
    - Copy `assets/tailor_profile_template.md` to `personal-info/tailor-profile.md` and pre-fill everything the resume shows (name, contact line, school, degree, dates, employers and titles).
    - Then ask for the rest in **one** message, with suggested defaults:
@@ -85,7 +85,7 @@ If the user declines a file, continue with what's available and ask for the miss
 ## 1. Ground truth
 
 **Content** always comes from three sources:
-- the original resume(s) in `resumes/`,
+- the one original resume in `resumes/`,
 - `personal-info/projects.md` / GitHub repos,
 - the confirmed facts in `tailor-profile.md`.
 
@@ -93,7 +93,7 @@ If the user declines a file, continue with what's available and ask for the miss
 
 Never start a new posting from a previous tailored resume's content. Inferences made for job A, its keywords and its wording, would leak into job B as if they were facts. Re-derive them every time.
 
-If there are several base resumes, start from the one closest to the posting. For GitHub projects, read the README and code listing. Project bullets may only state what the repo shows (numbers, stack, results), because recruiters click those links.
+Start from the one resume in `resumes/`. For GitHub projects, read the README and code listing. Project bullets may only state what the repo shows (numbers, stack, results), because recruiters click those links.
 
 ---
 
@@ -218,7 +218,7 @@ Start from `assets/jake_template.tex`. Its project-heading macro is already fixe
 - **Projects:** `Name | stack | GitHub`, with at least 2 lines each (see §4).
 - **Technical Skills: tailored to the job description every time, never copied from the original resume.** Build it from two sources only:
   1. **The posting's technical keywords, 100% of them (mandatory).** Every language, framework, library, tool, platform, cloud service and database named anywhere in the JD goes into the Skills section, with no exceptions and no "no basis" skips. That includes either/or lists: when the JD says "AWS, GCP or Azure", all the named items go in Skills, even though bullets still pick one. The skills section is the guaranteed home for every JD tool, so ATS searches and recruiters always find it.
-  2. **The user's relevant background:** skills from their original resumes, profile and repos that relate to *this* role, even if the posting doesn't name them (e.g. Python and SQL for an automation role).
+  2. **The user's relevant background:** skills from their original resume, profile and repos that relate to *this* role, even if the posting doesn't name them (e.g. Python and SQL for an automation role).
 
   **Then:**
   - **Drop everything irrelevant to this role.** A Power Platform automation job gets no Rust, Ruby, Perl or Elixir, even though the original resume lists them. An unrelated skill dilutes the match.
