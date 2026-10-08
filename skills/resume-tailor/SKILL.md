@@ -275,7 +275,11 @@ Bend the shape whenever the user's history or the posting calls for it. To make 
 
 ## 6. Build and verify (after every compile)
 
-Compile per `references/latex-build.md`, then **look at the rendered PDF**. A clean compile proves nothing about layout. Check:
+**Aim for one page on the first draft.** Before writing, size the draft from the last tailored resume in the workspace (`tailored/*/resume.tex`): match its number of bullets and two-line bullets per section, so the first compile lands at or just under one page instead of needing several cut-and-recompile rounds.
+
+**Keep each loop cheap.** After every compile, check with text only: the "Output written … (N page" line, `measure_fill.pl`, and `pdftotext -layout` (which shows one-word lines and wrap problems). **Render the page image once, at the end,** as the final visual check, not after every compile. If the final image shows a problem, fix it and render once more.
+
+Compile per `references/latex-build.md`. A clean compile proves nothing about layout. Check:
 - [ ] exactly 1 page
 - [ ] no line holding a single word. Bolding widens text, so recheck wraps after adding bold.
 - [ ] no bullet that fills its line exactly. Jake's template leaves a blank line under such a bullet; shorten it by a few characters.
