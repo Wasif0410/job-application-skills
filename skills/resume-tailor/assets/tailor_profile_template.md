@@ -19,11 +19,11 @@ Your personal file. The resume-tailor, cover-letter and /apply skills read it on
 ## Contact line
 <phone> | <email> | <linkedin text> | <github text>
 
-## Base resumes
-- <file> — suits <kinds of roles>
+## Base resume
+- resumes/<file> (keep exactly one file in resumes/). Its text and your repo facts are cached in source-cache.md, refreshed every 5 runs.
 
 ## Projects
-- <GitHub profile or projects.md>; list repos worth featuring
+- <GitHub profile>; the repos worth featuring (their facts live in source-cache.md)
 
 ## Title policy
 - <Employer>: official only | light trims OK | flexible (may mirror the posting)

@@ -25,7 +25,7 @@ The two skills it runs stay independent and keep working on their own. This skil
   Every file named in this skill without a folder lives at the path that table gives.
 - **First run (onboarding), before step 1.** Check for:
   - the standard folders and `checkpoint.md`
-  - original resume(s) in `resumes/`
+  - exactly one original resume in `resumes/` (if there are several, ask which one is the ground truth and offer to move the others out)
   - `personal-info/tailor-profile.md` with an Identity section
   - `personal-info/cover-letter-profile.md`
   - `job-tracker/applications.csv`
